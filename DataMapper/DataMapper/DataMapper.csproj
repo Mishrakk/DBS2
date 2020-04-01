@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FD167017-5F6F-48AA-98F0-8BE2FC4BE5C8}</ProjectGuid>
+    <ProjectGuid>{223DB287-1CA7-4D99-9FC4-7B224BFA4D61}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>NpgsqlIntroduction</RootNamespace>
-    <AssemblyName>NpgsqlIntroduction</AssemblyName>
+    <RootNamespace>DataMapper</RootNamespace>
+    <AssemblyName>DataMapper</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -75,6 +75,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Copy.cs" />
+    <Compile Include="CopyMapper.cs" />
+    <Compile Include="IMapper.cs" />
+    <Compile Include="Movie.cs" />
+    <Compile Include="MovieMapper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -87,8 +87,8 @@ namespace ActiveRecord
 
         public void ChangePrice(double new_price)
         {
-            Price = new_price;
-            Save();
+            Price = new_price; // Change price of object in memory
+            Save(); // Changes price of row in database
         }
     }
 }

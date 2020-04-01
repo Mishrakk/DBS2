@@ -8,7 +8,8 @@ namespace NpgsqlIntroduction
         static void Main(string[] args)
         {
             // Specify connection options and open an connection		
-            NpgsqlConnection conn = new NpgsqlConnection("Server=127.0.0.1;User Id=postgres;Password=pwd;Database=rental;");
+            string connString = System.Configuration.ConfigurationManager.ConnectionStrings["Rental"].ToString();
+            NpgsqlConnection conn = new NpgsqlConnection(connString);
             conn.Open();
 
             // Define a query
