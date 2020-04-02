@@ -19,7 +19,7 @@ namespace DataMapper
         }
         public override string ToString()
         {
-            return $"Movie {ID}: {Title} produced in {Year} costs {Price} and has {Copies.Count} copies";
+            return $"Movie {ID}: {Title} produced in {Year} costs {Price} and has {(Copies != null ? Copies.Count : 0)} copies";
         }
     }
 }

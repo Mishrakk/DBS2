@@ -66,6 +66,7 @@ namespace DataMapper
                 // Notice the "?" symbol - Copies might be an empty list, so we need protection from NullReferenceException
                 movie.Copies?.ForEach(obj => CopyMapper.Instance.Save(obj));
             }
+            _cache[movie.ID] = movie;
         }
         public void Delete(Movie movie)
         {
