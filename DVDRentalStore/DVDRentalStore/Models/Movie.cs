@@ -10,11 +10,13 @@ namespace DVDRentalStore.Models
         public int MovieId { get; set; }
         public string Title { get; set; }
         public int Year { get; set; }
-        public Movie(int movieId, string title, int year)
+        public List<Copy> Copies { get; private set; }
+        public Movie(int movieId, string title, int year, List<Copy> copies = null)
         {
             MovieId = movieId;
             Title = title;
             Year = year;
+            Copies = copies;
         }
     }
 }

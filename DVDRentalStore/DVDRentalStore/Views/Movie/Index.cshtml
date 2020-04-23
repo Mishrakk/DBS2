@@ -6,6 +6,13 @@
 }
 
 <h2>Index</h2>
+@using (Html.BeginForm())
+{
+    <p>
+        @Html.TextBox("searchString", ViewBag.currentSearchString as string)
+        <input type="submit" value="Search" class="btn btn-primary" />
+    </p>
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -13,28 +20,41 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Title)
+            @Html.ActionLink("Title", "Index", new { sortOrder = ViewBag.NextSortOrder })
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Year)
         </th>
-        <th></th>
+        <th>
+            Number of copies
+        </th>
+        <th>
+            Copies details
+        </th>
+        <th>Action links</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Year)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MovieId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MovieId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MovieId })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copies, "CopiesCount")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Copies, "CopiesTable")
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MovieId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MovieId })
+            </td>
+        </tr>
+    }
 
 </table>

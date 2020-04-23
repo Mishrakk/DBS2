@@ -1,0 +1,25 @@
+﻿@model IEnumerable<DVDRentalStore.Models.Copy>
+@if (Model != null)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Available
+            </th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Available)
+                </th>
+            </tr>
+        }
+    </table>
+}

@@ -1,0 +1,5 @@
+﻿@model IEnumerable<DVDRentalStore.Models.Copy>
+@{
+    var numberOfCopies = Model == null ? "0" : Model.Count().ToString();
+}
+@Html.Raw(numberOfCopies)
