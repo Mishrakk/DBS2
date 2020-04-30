@@ -4,18 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DVDRentalStore.Models;
+using DVDRentalStore.DAL;
+using System.Data.Entity;
 
 namespace DVDRentalStore.Controllers
 {
     public class MovieController : Controller
     {
-        private static IEnumerable<Movie> movies = new List<Movie> {
-            new Movie(1, "Anchorman", 2000, new List<Copy>{ new Copy(1, true, 1), new Copy(2, true, 1), new Copy(3, false, 1)}),
-            new Movie(2, "Anchorman 2", 2001),
-            new Movie(3, "Terminator", 1993),
-            new Movie(4, "Jurrasic Park", 1999, new List<Copy>{ new Copy(1, true, 1), new Copy(2, false, 1), new Copy(3, true, 1)}),
-            new Movie(5, "The Lord of the Rings", 1997),
-        };
+        private readonly StoreContext db = new StoreContext();
         // GET: Movie
         public ActionResult Index(string sortOrder)
         {
@@ -24,13 +20,13 @@ namespace DVDRentalStore.Controllers
             switch (sortOrder)
             {
                 case "ascending":
-                    movs = movies.OrderBy(movie => movie.Title);
+                    movs = db.Movies.Include(movie => movie.Copies).OrderBy(movie => movie.Title);
                     break;
                 case "descending":
-                    movs = movies.OrderByDescending(movie => movie.Title);
+                    movs = db.Movies.Include(movie => movie.Copies).OrderByDescending(movie => movie.Title);
                     break;
                 default:
-                    movs = movies;
+                    movs = db.Movies.Include(movie => movie.Copies);
                     break;
             }
             return View(movs);
@@ -42,7 +38,7 @@ namespace DVDRentalStore.Controllers
         {
             string searchString = collection["searchString"];
             ViewBag.currentSearchString = searchString;
-            var movs = movies.Where(movie => movie.Title.Contains(searchString));
+            var movs = db.Movies.Include(movie => movie.Copies).Where(movie => movie.Title.Contains(searchString));
             return View(movs);
         }
 
@@ -64,8 +60,9 @@ namespace DVDRentalStore.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
-
+                Movie newMovie = new Movie { Title = collection["Title"], Year = int.Parse(collection["Year"]) };
+                db.Movies.Add(newMovie);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
@@ -78,7 +75,7 @@ namespace DVDRentalStore.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var movie = movies.Single(obj => obj.MovieId == id);
+            var movie = db.Movies.Single(obj => obj.MovieId == id);
             return View(movie);
         }
 
@@ -88,8 +85,10 @@ namespace DVDRentalStore.Controllers
         {
             try
             {
-                movies.Single(obj => obj.MovieId == id).Title = collection["Title"];
-
+                var movie = db.Movies.Single(obj => obj.MovieId == id);
+                movie.Title = collection["Title"];
+                movie.Year = int.Parse(collection["Year"]);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
