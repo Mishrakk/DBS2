@@ -169,8 +169,23 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005071954028_InitialCreate.cs" />
+    <Compile Include="Migrations\202005071954028_InitialCreate.designer.cs">
+      <DependentUpon>202005071954028_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071956035_ClientModelAdded.cs" />
+    <Compile Include="Migrations\202005071956035_ClientModelAdded.designer.cs">
+      <DependentUpon>202005071956035_ClientModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005071957278_RentalModelAdded.cs" />
+    <Compile Include="Migrations\202005071957278_RentalModelAdded.designer.cs">
+      <DependentUpon>202005071957278_RentalModelAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Copy.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Rental.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,6 +245,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005071954028_InitialCreate.resx">
+      <DependentUpon>202005071954028_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071956035_ClientModelAdded.resx">
+      <DependentUpon>202005071956035_ClientModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005071957278_RentalModelAdded.resx">
+      <DependentUpon>202005071957278_RentalModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
