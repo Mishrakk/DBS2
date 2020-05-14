@@ -181,10 +181,16 @@
     <Compile Include="Migrations\202005071957278_RentalModelAdded.designer.cs">
       <DependentUpon>202005071957278_RentalModelAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005141840305_TablePerHierarchy.cs" />
+    <Compile Include="Migrations\202005141840305_TablePerHierarchy.designer.cs">
+      <DependentUpon>202005141840305_TablePerHierarchy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Copy.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005071957278_RentalModelAdded.resx">
       <DependentUpon>202005071957278_RentalModelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005141840305_TablePerHierarchy.resx">
+      <DependentUpon>202005141840305_TablePerHierarchy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

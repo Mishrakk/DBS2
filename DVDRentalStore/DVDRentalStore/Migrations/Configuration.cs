@@ -52,7 +52,7 @@
                 new Client{FirstName="Laura",LastName="Norman",Birthday=DateTime.Parse("2003-09-01")},
                 new Client{FirstName="Nino",LastName="Olivetto",Birthday=DateTime.Parse("2005-09-01")}
             };
-            clients.ForEach(c => context.Clients.AddOrUpdate(obj => new { obj.FirstName, obj.LastName }, c));
+            clients.ForEach(c => context.People.AddOrUpdate(obj => new { obj.FirstName, obj.LastName }, c));
             context.SaveChanges();
 
             var rentals = new List<Rental>
