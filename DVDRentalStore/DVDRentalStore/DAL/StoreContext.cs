@@ -14,11 +14,5 @@ namespace DVDRentalStore.DAL
         public DbSet<Copy> Copies { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Rental> Rentals { get; set; }
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Person>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
-            modelBuilder.Entity<Client>().Map(m => { m.MapInheritedProperties(); m.ToTable("Clients"); });
-            modelBuilder.Entity<Employee>().Map(e => { e.MapInheritedProperties(); e.ToTable("Employees"); });
-        }
     }
 }

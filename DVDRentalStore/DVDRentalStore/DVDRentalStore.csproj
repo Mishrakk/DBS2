@@ -193,6 +193,10 @@
     <Compile Include="Migrations\202005171738504_TablePerConcreteClass.designer.cs">
       <DependentUpon>202005171738504_TablePerConcreteClass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005171746125_BackToTablePerHierarchy.cs" />
+    <Compile Include="Migrations\202005171746125_BackToTablePerHierarchy.designer.cs">
+      <DependentUpon>202005171746125_BackToTablePerHierarchy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Copy.cs" />
@@ -278,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005171738504_TablePerConcreteClass.resx">
       <DependentUpon>202005171738504_TablePerConcreteClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005171746125_BackToTablePerHierarchy.resx">
+      <DependentUpon>202005171746125_BackToTablePerHierarchy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
