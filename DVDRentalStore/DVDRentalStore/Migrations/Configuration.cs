@@ -43,14 +43,14 @@
 
             var clients = new List<Client>
             {
-                new Client{FirstName="Carson",LastName="Alexander",Birthday=DateTime.Parse("2005-09-01")},
-                new Client{FirstName="Meredith",LastName="Alonso",Birthday=DateTime.Parse("2002-09-01")},
-                new Client{FirstName="Arturo",LastName="Anand",Birthday=DateTime.Parse("2003-09-01")},
-                new Client{FirstName="Gytis",LastName="Barzdukas",Birthday=DateTime.Parse("2002-09-01")},
-                new Client{FirstName="Yan",LastName="Li",Birthday=DateTime.Parse("2002-09-01")},
-                new Client{FirstName="Peggy",LastName="Justice",Birthday=DateTime.Parse("2001-09-01")},
-                new Client{FirstName="Laura",LastName="Norman",Birthday=DateTime.Parse("2003-09-01")},
-                new Client{FirstName="Nino",LastName="Olivetto",Birthday=DateTime.Parse("2005-09-01")}
+                new Client{Id=1,FirstName="Carson",LastName="Alexander",Birthday=DateTime.Parse("2005-09-01")},
+                new Client{Id=2,FirstName="Meredith",LastName="Alonso",Birthday=DateTime.Parse("2002-09-01")},
+                new Client{Id=3,FirstName="Arturo",LastName="Anand",Birthday=DateTime.Parse("2003-09-01")},
+                new Client{Id=4,FirstName="Gytis",LastName="Barzdukas",Birthday=DateTime.Parse("2002-09-01")},
+                new Client{Id=5,FirstName="Yan",LastName="Li",Birthday=DateTime.Parse("2002-09-01")},
+                new Client{Id=6,FirstName="Peggy",LastName="Justice",Birthday=DateTime.Parse("2001-09-01")},
+                new Client{Id=7,FirstName="Laura",LastName="Norman",Birthday=DateTime.Parse("2003-09-01")},
+                new Client{Id=8,FirstName="Nino",LastName="Olivetto",Birthday=DateTime.Parse("2005-09-01")}
             };
             clients.ForEach(c => context.People.AddOrUpdate(obj => new { obj.FirstName, obj.LastName }, c));
             context.SaveChanges();

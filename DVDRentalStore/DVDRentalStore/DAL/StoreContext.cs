@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using DVDRentalStore.Models;
 
 namespace DVDRentalStore.DAL
@@ -15,8 +16,9 @@ namespace DVDRentalStore.DAL
         public DbSet<Rental> Rentals { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Client>().ToTable("Clients");
-            modelBuilder.Entity<Employee>().ToTable("Employees");
+            modelBuilder.Entity<Person>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.None);
+            modelBuilder.Entity<Client>().Map(m => { m.MapInheritedProperties(); m.ToTable("Clients"); });
+            modelBuilder.Entity<Employee>().Map(e => { e.MapInheritedProperties(); e.ToTable("Employees"); });
         }
     }
 }
