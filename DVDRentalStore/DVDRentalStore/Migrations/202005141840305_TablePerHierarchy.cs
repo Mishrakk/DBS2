@@ -20,7 +20,7 @@
         
         public override void Down()
         {
-            AlterColumn("dbo.People", "Birthday", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.People", "Birthday", c => c.DateTime());
             DropColumn("dbo.People", "Discriminator");
             DropColumn("dbo.People", "Localization");
             DropColumn("dbo.People", "HireDate");

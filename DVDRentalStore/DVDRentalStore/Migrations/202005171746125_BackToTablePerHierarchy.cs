@@ -35,7 +35,7 @@
 
             DropForeignKey("dbo.Rentals", "ClientId", "dbo.People");
             DropPrimaryKey("dbo.People");
-            AlterColumn("dbo.People", "Birthday", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.People", "Birthday", c => c.DateTime());
             AlterColumn("dbo.People", "Id", c => c.Int(nullable: false));
             DropColumn("dbo.People", "Discriminator");
             DropColumn("dbo.People", "Localization");

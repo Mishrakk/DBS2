@@ -14,7 +14,7 @@
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(),
                         LastName = c.String(),
-                        Birthday = c.DateTime(nullable: false),
+                        Birthday = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
             

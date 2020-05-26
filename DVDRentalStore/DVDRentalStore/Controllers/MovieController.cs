@@ -9,10 +9,12 @@ using System.Data.Entity;
 
 namespace DVDRentalStore.Controllers
 {
+    [Authorize]
     public class MovieController : Controller
     {
         private readonly StoreContext db = new StoreContext();
         // GET: Movie
+        [Authorize(Roles = "Client")]
         public ActionResult Index(string sortOrder)
         {
             IEnumerable<Movie> movs;
@@ -49,6 +51,7 @@ namespace DVDRentalStore.Controllers
         }
 
         // GET: Movie/Create
+        [Authorize(Roles = "Employee")]
         public ActionResult Create()
         {
             return View();
@@ -56,6 +59,7 @@ namespace DVDRentalStore.Controllers
 
         // POST: Movie/Create
         [HttpPost]
+        [Authorize(Roles = "Employee")]
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -73,6 +77,7 @@ namespace DVDRentalStore.Controllers
 
         // GET: Movie/Edit/5
         [HttpGet]
+        [Authorize(Roles = "Employee")]
         public ActionResult Edit(int id)
         {
             var movie = db.Movies.Single(obj => obj.MovieId == id);
@@ -81,6 +86,7 @@ namespace DVDRentalStore.Controllers
 
         // POST: Movie/Edit/5
         [HttpPost]
+        [Authorize(Roles = "Employee")]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -98,6 +104,7 @@ namespace DVDRentalStore.Controllers
         }
 
         // GET: Movie/Delete/5
+        [Authorize(Roles = "Employee")]
         public ActionResult Delete(int id)
         {
             return View();
@@ -105,6 +112,7 @@ namespace DVDRentalStore.Controllers
 
         // POST: Movie/Delete/5
         [HttpPost]
+        [Authorize(Roles = "Employee")]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

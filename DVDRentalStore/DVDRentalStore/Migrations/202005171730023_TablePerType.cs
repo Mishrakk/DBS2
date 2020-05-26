@@ -23,7 +23,7 @@
                 c => new
                 {
                     Id = c.Int(nullable: false),
-                    Birthday = c.DateTime(nullable: false),
+                    Birthday = c.DateTime(),
                 })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.People", t => t.Id)
